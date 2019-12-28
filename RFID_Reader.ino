@@ -1,5 +1,5 @@
 /*
-  MEC10 Soil Moisture & Temperature & EC Sensor
+  RFID Reader UHF
 
   version 1 - 3 Dec  2019
   author : KornWtp
@@ -16,7 +16,7 @@ HardwareSerial RS232Serial(Serial1);
 void setup() {
 
   Serial.begin(115200);
-  Serial.println("RFID Reader");
+  Serial.println("RFID Reader UHF");
 
   RS232Serial.begin(38400, SERIAL_8E1, RX, TX);
 }
