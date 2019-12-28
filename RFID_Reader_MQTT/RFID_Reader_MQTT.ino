@@ -177,10 +177,18 @@ void RFID_Reader() {
   RS232Serial.write(0xD7);
 
   byte data_buf[30];
-  String RFID_Reader = "";
+  String RFID_Read = "";
   RS232Serial.readBytes(data_buf, 30);
-  RFID_Reader.concat(data_buf[30]);
-  mqttClient.publish("RFID_Reader/", (char*) RFID_Reader.c_str());
+  int len = 30;
+  char t[3];
+  byte* payload = data_buf;
+  while (len--) {
+    uint8_t b = *(payload++);
+    sprintf(t, "%02x", b);
+    RFID_Read += t;
+    Serial.println(t);
+  }
+  mqttClient.publish("RFID_Reader/", RFID_Read.c_str());
   for (byte i = 0; i < 30; i++ ) {
     Serial.print(data_buf[i], HEX);
     Serial.print(" ");
@@ -232,7 +240,7 @@ void loop()
       reconnect();
     } else {
       mqttClient.loop();
-//      Door_satus();
+      //      Door_satus();
     }
   }
   //  delay(1000);
