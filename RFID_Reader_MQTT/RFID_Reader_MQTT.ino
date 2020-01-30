@@ -189,6 +189,7 @@ void RFID_Reader() {
     Serial.println(t);
   }
   mqttClient.publish("RFID_Reader/", RFID_Read.c_str());
+  RFID_Read = "FFFF";
   for (byte i = 0; i < 30; i++ ) {
     Serial.print(data_buf[i], HEX);
     Serial.print(" ");

@@ -23,14 +23,14 @@ void setup() {
 
 void loop() {
   // inquiry frame
-  RS232Serial.write(0xFA);
-  RS232Serial.write(0x07);
-  RS232Serial.write(0xFF);
-  RS232Serial.write(0x00);
-  RS232Serial.write(0x20);
-  RS232Serial.write(0x30);
-  RS232Serial.write(0x36);
-  RS232Serial.write(0xD7);
+    RS232Serial.write(0xFA);
+    RS232Serial.write(0x07);
+    RS232Serial.write(0xFF);
+    RS232Serial.write(0x00);
+    RS232Serial.write(0x20);
+    RS232Serial.write(0x30);
+    RS232Serial.write(0x36);
+    RS232Serial.write(0xD7);
 
   byte data_buf[30];
   RS232Serial.readBytes(data_buf, 30);
@@ -40,17 +40,17 @@ void loop() {
     Serial.print(" ");
   }
   Serial.println("");
-  
-  // clear frame
-//  RS232Serial.write(0xFA);
-//  RS232Serial.write(0x07);
-//  RS232Serial.write(0xFF);
-//  RS232Serial.write(0x00);
-//  RS232Serial.write(0x20);
-//  RS232Serial.write(0x04);
-//  RS232Serial.write(0xE7);
-//  RS232Serial.write(0xA6);
 
-  
-  delay(5000);
+  // clear frame
+  //  RS232Serial.write(0xFA);
+  //  RS232Serial.write(0x07);
+  //  RS232Serial.write(0xFF);
+  //  RS232Serial.write(0x00);
+  //  RS232Serial.write(0x20);
+  //  RS232Serial.write(0x04);
+  //  RS232Serial.write(0xE7);
+  //  RS232Serial.write(0xA6);
+
+
+  delay(2000);
 }
